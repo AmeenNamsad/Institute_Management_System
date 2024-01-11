@@ -1,5 +1,6 @@
 package com.example.InstituteManagementSystem.data;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.Column;
@@ -7,18 +8,21 @@ import javax.persistence.Column;
 public class InstituteData {
 
 
+    @JsonProperty("id")
     private Long id;
 
+    @JsonProperty("name")
     private String name;
 
+    @JsonProperty("code")
     private String code;
-
+    @JsonProperty("address1")
     private String address1;
-
+    @JsonProperty("address2")
     private String address2;
-
+    @JsonProperty("pinCode")
     private String pinCode;
-
+    @JsonProperty("phoneNo")
     private String phoneNo;
 
     public InstituteData() {

@@ -66,7 +66,6 @@ public class InstituteWriteServiceImpl implements InstituteWriteService {
             instituteRepository.saveAndFlush(institute);
         } catch (final JpaSystemException | DataIntegrityViolationException dve) {
             handleDataIntegrityIssues(instituteData, dve.getMostSpecificCause());
-            instituteData.setId(institute.getId());
         }
         BeanUtils.copyProperties(institute, instituteData);
         return instituteData;
