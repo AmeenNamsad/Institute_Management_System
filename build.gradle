@@ -32,6 +32,7 @@ dependencies {
 	testImplementation('org.spockframework:spock-spring:2.0-M1-groovy-2.5')
 	testImplementation('org.spockframework:spock-core:2.0-M1-groovy-2.5')
 	implementation 'com.h2database:h2:1.4.200'
+	implementation 'org.springdoc:springdoc-openapi-ui:1.7.0'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}

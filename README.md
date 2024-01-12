@@ -3,6 +3,9 @@ Institute Management System
 
 Welcome to the Institute Management System - CRUD Operations repository! This project focuses on the fundamental functionalities of registering, retrieving, and updating information within an institute. It provides a straightforward solution for managing essential data efficiently.
 
+### Swagger UI
+
+Access the [Swagger UI](https://localhost:8443/swagger-ui/index.html#/) for interactive documentation.
 
 Requirements
 ============
@@ -45,11 +48,6 @@ Run the following commands, very similarly to how [.travis.yml](.travis.yml) doe
 Instructions to run using Docker and docker-compose
 ===================================================
 
-It is possible to do a 'one-touch' installation of Fineract using containers (AKA "Docker").
-Fineract now packs the mifos community-app web UI in it's docker deploy.
-You can now run and test fineract with a GUI directly from the combined docker builds.
-This includes the database running in a container.
-
 As Prerequisites, you must have `docker` and `docker-compose` installed on your machine; see
 [Docker Install](https://docs.docker.com/install/) and
 [Docker Compose Install](https://docs.docker.com/compose/install/).
@@ -58,23 +56,12 @@ Alternatively, you can also use [Podman](https://github.com/containers/libpod)
 (e.g. via `dnf install podman-docker`), and [Podman Compose](https://github.com/containers/podman-compose/)
 (e.g. via `pip3 install podman-compose`) instead of Docker.
 
-Now to run a new Fineract instance you can simply:
+Now to run a new ims you can simply:
 
 1. `git clone https://github.com/AmeenNamsad/Institute_Management_System.git`
-1. `docker-compose build`
-1. `docker-compose up -d`
-1. fineract (back-end) is running at https://localhost:8443/fineract-provider/
-1. wait for https://localhost:8443/fineract-provider/actuator/health to return `{"status":"UP"}`
-1. you must go to https://localhost:8443 and remember to accept the self-signed SSL certificate of the API once in your browser, otherwise  you get a message that is rather misleading from the UI.
-1. community-app (UI) is running at http://localhost:9090/?baseApiUrl=https://localhost:8443/fineract-provider&tenantIdentifier=default
-1. login using default _username_ `mifos` and _password_ `password`
+2. `docker build . -t ims`
+3. `docker-compose up -d`
+4. `ims (back-end) is running at https://localhost:8443/institute/`
 
-The [`docker-compose.yml`](docker-compose.yml) will build the `fineract` container from the source based on the [`Dockerfile`](Dockerfile).  You could change that to use the pre-built container image instead of having to re-build it.
+The [`docker-compose.yml`](docker-compose.yml) will build the `ims` container from the source based on the [`Dockerfile`](Dockerfile).  You could change that to use the pre-built container image instead of having to re-build it.
 
-https://hub.docker.com/r/apache/fineract has a pre-built container image of this project, built continuously.
-
-You must specify the MySQL tenants database JDBC URL by passing it to the `fineract` container via environment
-variables; please consult the [`docker-compose.yml`](docker-compose.yml) for exact details how to specify those.
-_(Note that in previous versions, the `mysqlserver` environment variable used at `docker build` time instead of at
-`docker run` time did something similar; this has changed in [FINERACT-773](https://issues.apache.org/jira/browse/FINERACT-773)),
-and the `mysqlserver` environment variable is now no longer supported.)_
