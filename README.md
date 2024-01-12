@@ -3,9 +3,7 @@ Institute Management System
 
 Welcome to the Institute Management System - CRUD Operations repository! This project focuses on the fundamental functionalities of registering, retrieving, and updating information within an institute. It provides a straightforward solution for managing essential data efficiently.
 
-### Swagger UI
-
-Access the [Swagger UI](https://localhost:8443/swagger-ui/index.html#/) for interactive documentation.
+[Document](#Swagger UI)
 
 Requirements
 ============
@@ -64,4 +62,8 @@ Now to run a new ims you can simply:
 4. `ims (back-end) is running at https://localhost:8443/institute/`
 
 The [`docker-compose.yml`](docker-compose.yml) will build the `ims` container from the source based on the [`Dockerfile`](Dockerfile).  You could change that to use the pre-built container image instead of having to re-build it.
+
+### Swagger UI
+
+After running the application Access the [Swagger UI](https://localhost:8443/swagger-ui/index.html#/) for interactive documentation.
 
